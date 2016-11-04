@@ -2,14 +2,23 @@
 #include <math.h>
 using namespace std;
 
+double theta_step = M_PI/10000;
+double r0 = 0.03;  // [m]
+double k = 500;    // [N/m]
+double m = 0.3;    // [kg]
+double g = 9.8;    // [m/s^2]
+double l = 0.3;    // [m] 
+double mu = m*g*l;
+
 int main(void)
 {
-	double theta_step = M_PI/10000;
-	double r0 = 1;
-	double k = 1;
-	double mu = 0.6;
-
-	cout<<"theta,"<<"sin(theta),"<<"x,"<<"y,"<<"alpha,"<<"beta,"<<"r,"<<endl;
+	cout<<"theta,"
+		<<"sin(theta),"
+		<<"x,"
+		<<"y,"
+		<<"alpha,"
+		<<"beta,"
+		<<"r,"<<endl;
 
 	double r = r0;
 
@@ -24,6 +33,7 @@ int main(void)
 		double xn = -b / (a-ap);
 		double yn = ap * xn;
 		double rn = sqrt(xn*xn+yn*yn);
+
 		cout<<theta<<","
 			<<k*r*r*tan(alpha)<<","
 			<<x<<","
@@ -32,6 +42,7 @@ int main(void)
 			<<beta<<","
 			<<r<<","
 			<<endl;
+
 		r = rn;
 	}
 
